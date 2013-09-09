@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="Backtest.Reporting.BenchMarkDataSheet"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <Grid>
+        <dxg:GridControl AutoPopulateColumns="True" Name="grid1" ItemsSource="{Binding Data}">
+            <dxg:GridControl.View>
+                <dxg:TableView IsDetailButtonVisibleBinding="{x:Null}" ShowGroupPanel="False" 
+                                                       VerticalScrollbarVisibility="Auto" AutoWidth="True" NavigationStyle="Row"
+                                                               DetailHeaderContent="Data" 
+                                                                />
+            </dxg:GridControl.View>
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn FieldName="Account" VisibleIndex="0" />
+                <dxg:GridColumn FieldName="Symbol" VisibleIndex="1" />
+                <dxg:GridColumn FieldName="Side" VisibleIndex="2"  CellStyle="{Binding Source={StaticResource greenRedBackgroundStyle}}"/>
+                <dxg:GridColumn FieldName="AvePrice" Header="Avg Price" VisibleIndex="3" EditSettings="{StaticResource currencyFormatSetting}" CellStyle="{Binding Source={StaticResource greenRedForegroundStyle}}"/>
+                <dxg:GridColumn FieldName="SumSize" VisibleIndex="4" />
+                <!--<dxg:GridColumn FieldName="AvePrice" VisibleIndex="3" />
+                <dxg:GridColumn FieldName="SumSize" VisibleIndex="4" />
+                <dxg:GridColumn FieldName="Timestamp" />-->
+            </dxg:GridControl.Columns>
+            <dxg:GridControl.DetailDescriptor>
+                <dxg:DataControlDetailDescriptor ItemsSourceBinding="{Binding Orders}">
+                    <dxg:GridControl >
+                        <dxg:GridControl.Columns>
+                            <dxg:GridColumn FieldName="Price" EditSettings="{StaticResource currencyFormatSetting}" CellStyle="{Binding Source={StaticResource greenRedForegroundStyle}}"/>
+                            <dxg:GridColumn FieldName="Size" />
+                        </dxg:GridControl.Columns>
+                        <dxg:GridControl.TotalSummary>
+                            <dxg:GridSummaryItem SummaryType="Count"  Alignment="Left"/>
+                            <!--<dxg:GridSummaryItem FieldName="Price" SummaryType="Average"  Alignment="Left" DisplayFormat="C"/>
+                            <dxg:GridSummaryItem FieldName="Size"  SummaryType="Sum" Alignment="Right"/>-->
+                        </dxg:GridControl.TotalSummary>
+                        <dxg:GridControl.View>
+                            <dxg:TableView ShowFixedTotalSummary="True"  ShowGroupPanel="False" />
+                        </dxg:GridControl.View>
+                    </dxg:GridControl>
+                </dxg:DataControlDetailDescriptor>
+            </dxg:GridControl.DetailDescriptor>
+        </dxg:GridControl>
+    </Grid>
+</UserControl>

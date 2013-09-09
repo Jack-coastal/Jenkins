@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="Backtest.Reporting.ReportDataSheet"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+              xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <Grid>
+        <dxg:GridControl AutoPopulateColumns="True" Name="grid1" ItemsSource="{Binding ReportData}">
+            <dxg:GridControl.View>
+                <dxg:TableView IsDetailButtonVisibleBinding="{x:Null}"  ShowGroupPanel="False"  
+                                                       VerticalScrollbarVisibility="Auto" AutoWidth="True" NavigationStyle="Row"
+                                                               DetailHeaderContent="Data" 
+                                                                />
+            </dxg:GridControl.View>
+                <dxg:GridControl.Bands>
+                <dxg:GridControlBand >
+                    <dxg:GridColumn FieldName="Symbol"/>
+                </dxg:GridControlBand>
+                <dxg:GridControlBand Header="Side">
+                    <dxg:GridColumn FieldName="LiveSide" Header="Live"/>
+                    <dxg:GridColumn FieldName="BenchMarkSide" Header="Back Test"/>
+                </dxg:GridControlBand>
+                <dxg:GridControlBand Header="AveEntry">
+                    <dxg:GridColumn FieldName="LiveAveEntry" Header="Live"/>
+                    <dxg:GridColumn FieldName="BenchMarkAveEntry" Header="Back Test"/>
+                </dxg:GridControlBand>
+                <dxg:GridControlBand Header="AveExit">
+                    <dxg:GridColumn FieldName="LiveAveExit" Header="Live"/>
+                    <dxg:GridColumn FieldName="BenchMarkAveExit" Header="Back Test"/>
+                </dxg:GridControlBand>
+                <dxg:GridControlBand Header="Size">
+                    <dxg:GridColumn FieldName="LiveSize" Header="Live"/>
+                    <dxg:GridColumn FieldName="BenchMarkSize" Header="Back Test"/>
+                </dxg:GridControlBand>
+                <dxg:GridControlBand>
+                    <dxg:GridColumn FieldName="PnL" Header="PnL"/>
+                </dxg:GridControlBand>
+                <dxg:GridControlBand>
+                    <dxg:GridColumn FieldName="Slippage"/>
+                </dxg:GridControlBand>
+                <!--<dxg:GridControlBand Header="Gross Pnl">
+                    <dxg:GridColumn FieldName="LiveGrossPnl" Header="Live"/>
+                    <dxg:GridColumn FieldName="BackTestGrossPnl" Header="Back Test"/>
+                </dxg:GridControlBand>
+                <dxg:GridControlBand Header="Slippage Pnl">
+                    <dxg:GridColumn FieldName="LiveSlippagePnl" Header="Live"/>
+                    <dxg:GridColumn FieldName="BackTestSlippagePnl" Header="Back Test"/>
+                </dxg:GridControlBand>
+                <dxg:GridControlBand Header="Commisions">
+                    <dxg:GridColumn FieldName="LiveCommisions" Header="Live"/>
+                    <dxg:GridColumn FieldName="BackTestCommisions" Header="Back Test"/>
+                </dxg:GridControlBand>
+                <dxg:GridControlBand Header="Gross BP">
+                    <dxg:GridColumn FieldName="LiveGrossBP" Header="Live"/>
+                    <dxg:GridColumn FieldName="BackTestGross BP" Header="Back Test"/>
+                </dxg:GridControlBand>
+                <dxg:GridControlBand Header="Max net used BP">
+                    <dxg:GridColumn FieldName="LiveMaxnetusedBP" Header="Live"/>
+                    <dxg:GridColumn FieldName="BackTestMaxnetusedBP" Header="Back Test"/>
+                </dxg:GridControlBand>-->
+            </dxg:GridControl.Bands>
+        </dxg:GridControl>
+    </Grid>
+</UserControl>
