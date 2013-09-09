@@ -87,7 +87,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="FunctionLibrary">
-      <HintPath>..\..\..\FunctionLibraryTest\FunctionLibraryTest\FunctionLibrary\bin\Debug\FunctionLibrary.dll</HintPath>
+      <HintPath>..\..\..\..\..\Downloads\FunctionLibraryTest\FunctionLibraryTest\FunctionLibrary\bin\Debug\FunctionLibrary.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
