@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ViewModels
 {
-    public class AccountViewModel
+    public class AccountViewModel //test commit
     {
         #region Data Members
         string _action;
